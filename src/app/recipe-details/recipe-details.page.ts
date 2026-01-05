@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { DataService } from '../services/data.service';
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/angular/standalone';
+import { IonItem, IonLabel, IonList } from '@ionic/angular/standalone';
 import { HttpOptions } from '@capacitor/core';
 import { MyHTTPServices } from '../services/my-httpservices';
 
@@ -12,11 +13,14 @@ import { MyHTTPServices } from '../services/my-httpservices';
   templateUrl: './recipe-details.page.html',
   styleUrls: ['./recipe-details.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonItem, IonLabel, IonList]
 })
 export class RecipeDetailsPage implements OnInit {
   recIng:string = "";
   fullIngr!:any;
+  instruction!:any;
+  metric!:any;
+  us!:any;
   apiKey="70759a4f7911402abcc53d3c51d3b759"
   options: HttpOptions = {
     url:""
@@ -36,6 +40,7 @@ export class RecipeDetailsPage implements OnInit {
       console.log(this.options.url);
       let recipe = await this.mhts.get(this.options)
       this.fullIngr = recipe.data.extendedIngredients
+      this.instruction = recipe.data.analyzedInstructions.steps
       console.log(JSON.stringify(this.fullIngr));
 
     }
