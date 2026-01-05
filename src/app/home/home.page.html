@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      What's in the house? Recipe Finder!
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-searchbar 
+       [value]="searchQuery"
+        (ionInput)="handleInput($event)"
+        search-icon="search-circle" 
+        placeholder="What Ingredients do you have?">
+      </ion-searchbar>
+      <ion-buttons>
+        <ion-button 
+          (click)="onSearch()" 
+          color="warning" 
+          fill="outline">
+          Search
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <div id="container">
+    <h1> HomePage Yup bro!</h1>
+    <strong>Ready to create an app?</strong>
+    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  </div>
+</ion-content>
