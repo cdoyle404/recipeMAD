@@ -3,7 +3,12 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>recipe-details</ion-title>
+      <ion-title>recipe-details</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="addtoFav()" color="warning" fill="outline">
+          Add to Favorites
+        </ion-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

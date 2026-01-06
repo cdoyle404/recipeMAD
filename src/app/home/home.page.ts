@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonSearchbar, IonButton, IonButtons, IonIcon, IonMenuButton } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { searchCircle, cogOutline } from 'ionicons/icons';
+import { searchCircle, cogOutline, heartOutline } from 'ionicons/icons';
 import { FormsModule } from '@angular/forms';
 import { HttpOptions } from '@capacitor/core';
 import { HttpClient } from '@angular/common/http';
@@ -20,7 +20,7 @@ export class HomePage {
   searchQuery: string = "";
 
   constructor(private router: Router, private ds: DataService) {
-    addIcons({searchCircle, cogOutline});
+    addIcons({searchCircle, cogOutline, heartOutline});
   }
   handleInput(event: any) {
     this.searchQuery = event.target.value;
@@ -31,5 +31,8 @@ export class HomePage {
   }
   async toSettings() {
   this.router.navigate(['/settings']);
+}
+async toFavorites() {
+  this.router.navigate(['/favorites']);
 }
 }

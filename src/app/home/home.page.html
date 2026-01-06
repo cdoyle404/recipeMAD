@@ -4,11 +4,14 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      What's in the house? Recipe Finder!
+      G00438798 - Cathal Doyle
     </ion-title>
-     <ion-buttons slot="end">
-      <ion-button (click)="toSettings()">
-        <ion-icon slot="icon-only" name="cog-outline" fill="warning"></ion-icon>
+    <ion-buttons slot="end">
+      <ion-button (click)="toSettings()" color="warning" fill="clear">
+        <ion-icon slot="icon-only" name="cog-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="toFavorites()" color="warning" fill="clear">
+        <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
