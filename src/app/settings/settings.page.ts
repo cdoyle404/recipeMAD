@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   templateUrl: './settings.page.html',
   styleUrls: ['./settings.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonItem, IonLabel, IonList, IonRadio, IonRadioGroup, IonButtons ]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonItem, IonLabel, IonList, IonRadio, IonRadioGroup, IonButtons, IonMenuButton ]
 })
 export class SettingsPage implements OnInit {
   selectedSystem: 'metric' | 'us' = 'metric';

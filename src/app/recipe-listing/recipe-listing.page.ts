@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar,  IonButton, IonButtons } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar,  IonButton, IonButtons, IonMenuButton } from '@ionic/angular/standalone';
 import { DataService } from '../services/data.service';
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/angular/standalone';
 import { MyHTTPServices } from '../services/my-httpservices';
@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
   templateUrl: './recipe-listing.page.html',
   styleUrls: ['./recipe-listing.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,  IonButton, IonButtons]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,  IonButton, IonButtons, IonMenuButton]
 })
 export class RecipeListingPage implements OnInit {
   keyword:string = "";

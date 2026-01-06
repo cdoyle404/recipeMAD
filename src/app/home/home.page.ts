@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonSearchbar, IonButton, IonButtons, IonIcon } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonSearchbar, IonButton, IonButtons, IonIcon, IonMenuButton } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { searchCircle, cogOutline } from 'ionicons/icons';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +13,8 @@ import { Router } from '@angular/router'
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonSearchbar, IonButton, IonButtons, FormsModule, IonIcon]
+  standalone: true,
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonSearchbar, IonButton, IonButtons, FormsModule, IonIcon, IonMenuButton]
 })
 export class HomePage {
   searchQuery: string = "";
