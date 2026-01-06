@@ -19,6 +19,19 @@ export class FavouritesPage implements OnInit {
   constructor(private dts: DataService, private router: Router) { }
 
   ngOnInit() {
+    this.loadFavourites();
+  }
+
+  async loadFavourites() {
+    const fav = await this.dts.get("favoriteRecipe");
+    if (Array.isArray(fav)) {
+      this.favourites = fav;
+    } else if (fav !== null && fav !== undefined) {
+      this.favourites = [fav];
+    } else {
+      this.favourites = [];
+    }
+    console.log('Loaded favourites', this.favourites);
   }
 
 }

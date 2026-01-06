@@ -5,6 +5,7 @@ import { Storage } from '@ionic/storage-angular';
   providedIn: 'root',
 })
 export class DataService {
+  [x: string]: any;
   
   constructor(private storage: Storage){
     this.init();

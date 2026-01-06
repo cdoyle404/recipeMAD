@@ -65,7 +65,8 @@ export class RecipeDetailsPage implements OnInit {
      if (this.isFavorited) {
     await this.sds.set("favoriteRecipe", this.storId);
      } else {
-      await this.sds['remove'](this.storId);
+      //Could not get this to work. 
+      
      }
 }
 }
