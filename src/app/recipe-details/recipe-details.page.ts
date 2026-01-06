@@ -7,9 +7,6 @@ import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle }
 import { IonItem, IonLabel, IonList } from '@ionic/angular/standalone';
 import { HttpOptions } from '@capacitor/core';
 import { MyHTTPServices } from '../services/my-httpservices';
-import { Router } from '@angular/router';
-import { cogOutline } from 'ionicons/icons';
-import { addIcons } from 'ionicons';
 
 @Component({
   selector: 'app-recipe-details',
@@ -29,9 +26,7 @@ export class RecipeDetailsPage implements OnInit {
   options: HttpOptions = {
     url:""
   }
-  constructor(private dts:DataService, private mhts: MyHTTPServices, private router: Router) {
-     addIcons({ cogOutline});
-   }
+  constructor(private dts:DataService, private mhts: MyHTTPServices) { }
 
   ngOnInit() {
     this.getRecipeIn();
@@ -61,7 +56,5 @@ export class RecipeDetailsPage implements OnInit {
     }
     console.log('Recipe Details - Using measurement system:', this.selectedSystem);
   }
-    async toSettings() {
-  this.router.navigate(['/settings']);
-}
+  
 }
