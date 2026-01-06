@@ -1,6 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>recipe-details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toSettings()">
+        <ion-icon slot="icon-only" name="cog-outline" fill="warning"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
   </ion-toolbar>
 </ion-header>
 
@@ -12,13 +18,22 @@
     <ion-card-subtitle></ion-card-subtitle>
   </ion-card-header>
   <ion-card-content> 
-     {{ing.measures.us.amount}} {{ing.measures.us.unitLong}} {{ing.measures.metric.amount}} {{ing.measures.metric.unitLong}}
+     {{ing.measures[selectedSystem].amount}} {{ing.measures[selectedSystem].unitLong}}
   </ion-card-content>
 </ion-card>
-</ion-content>
+
 
 <ion-list>
-  <ion-title>Step by Step Instructions</ion-title>
-  <ion-item *ngFor="let inst of instructions">
-    <ion-label>{{inst.number}} {{inst.step}}</ion-label>
+  <ion-header>
+    <ion-label>
+      <ion-title>Step by Step Instructions</ion-title>
+    </ion-label>
+  </ion-header>
+  <ion-item *ngFor="let inst of instruction">
+    <ion-label>
+      <h2>Step {{inst.number}}</h2>
+      <p>{{inst.step}}</p>
+    </ion-label>
   </ion-item>
+</ion-list>
+</ion-content>

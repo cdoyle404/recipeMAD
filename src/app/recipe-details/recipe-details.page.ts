@@ -7,6 +7,9 @@ import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle }
 import { IonItem, IonLabel, IonList } from '@ionic/angular/standalone';
 import { HttpOptions } from '@capacitor/core';
 import { MyHTTPServices } from '../services/my-httpservices';
+import { Router } from '@angular/router';
+import { cogOutline } from 'ionicons/icons';
+import { addIcons } from 'ionicons';
 
 @Component({
   selector: 'app-recipe-details',
@@ -21,14 +24,18 @@ export class RecipeDetailsPage implements OnInit {
   instruction!:any;
   metric!:any;
   us!:any;
+  selectedSystem: 'metric' | 'us' = 'metric';
   apiKey="70759a4f7911402abcc53d3c51d3b759"
   options: HttpOptions = {
     url:""
   }
-  constructor(private dts:DataService, private mhts: MyHTTPServices) { }
+  constructor(private dts:DataService, private mhts: MyHTTPServices, private router: Router) {
+     addIcons({ cogOutline});
+   }
 
   ngOnInit() {
     this.getRecipeIn();
+    this.loadMeasure();
   }
 
     async getRecipeIn(){
@@ -37,12 +44,24 @@ export class RecipeDetailsPage implements OnInit {
       let startURL = 'https://api.spoonacular.com/recipes/';
       let endURL = "/information?apiKey=";
       this.options.url = startURL + this.recIng + endURL + this.apiKey
-      console.log(this.options.url);
       let recipe = await this.mhts.get(this.options)
       this.fullIngr = recipe.data.extendedIngredients
-      this.instruction = recipe.data.analyzedInstructions.steps
-      console.log(JSON.stringify(this.fullIngr));
+      this.instruction = recipe.data.analyzedInstructions[0].steps;
+      console.log(JSON.stringify(this.instruction));
 
     }
 
+    async loadMeasure() {
+    const saved = await this.dts.get('measurementSystem');
+    if (saved) {
+      this.selectedSystem = saved;
+    } else {
+      // Default to metric if nothing saved
+      this.selectedSystem = 'metric';
+    }
+    console.log('Recipe Details - Using measurement system:', this.selectedSystem);
+  }
+    async toSettings() {
+  this.router.navigate(['/settings']);
+}
 }
